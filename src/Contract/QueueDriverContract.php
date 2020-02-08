@@ -14,4 +14,30 @@ namespace Clivern\Metric\Contract;
  */
 interface QueueDriverContract
 {
+    /**
+     * Push value into queue.
+     *
+     * @param mixed $value
+     */
+    public function push(array $value): bool;
+
+    /**
+     * Removes and returns the value at the front of the queue.
+     */
+    public function pop(int $size = 1): array;
+
+    /**
+     * Get size of the queue.
+     */
+    public function size(): int;
+
+    /**
+     * Cleanup the queue.
+     */
+    public function clean(): bool;
+
+    /**
+     * Check if queue is empty.
+     */
+    public function isEmpty(): bool;
 }

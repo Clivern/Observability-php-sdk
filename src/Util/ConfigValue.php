@@ -21,6 +21,11 @@ class ConfigValue implements ConfigValueContract
      */
     private $value;
 
+    /**
+     * Class Constructor.
+     *
+     * @param null|mixed $value
+     */
     public function __construct($value = null)
     {
         $this->value = $value;

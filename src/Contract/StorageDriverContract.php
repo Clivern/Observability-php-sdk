@@ -14,4 +14,10 @@ namespace Clivern\Metric\Contract;
  */
 interface StorageDriverContract
 {
+    /**
+     * Store the value.
+     *
+     * @param mixed $value
+     */
+    public function persist(array $value): bool;
 }

@@ -38,6 +38,9 @@ class Metric
      */
     private $bucketName;
 
+    /**
+     * Class Constructor.
+     */
     public function __construct(
         ConfigContract $config,
         StorageDriverContract $storageDriver,
