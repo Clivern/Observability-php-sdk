@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Metric - Metrics Collector SDK in PHP
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace Clivern\Metric\Driver\Storage;
+namespace Clivern\Metric\Contract;
 
 /**
- * Storage Contract.
+ * Storage Driver Contract.
  */
-interface StorageContract
+interface StorageDriverContract
 {
 }

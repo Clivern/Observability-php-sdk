@@ -7,13 +7,13 @@ declare(strict_types=1);
  * (c) Clivern <hello@clivern.com>
  */
 
-namespace Clivern\Metric\Util;
+namespace Clivern\Metric\Driver\Queue;
 
-use Clivern\Metric\Contract\ConfigContract;
+use Clivern\Metric\Contract\QueueDriverContract;
 
 /**
- * Config Class.
+ * Redis Class.
  */
-class Config implements ConfigContract
+class Redis implements QueueDriverContract
 {
 }
