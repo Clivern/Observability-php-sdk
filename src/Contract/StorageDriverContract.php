@@ -15,9 +15,22 @@ namespace Clivern\Metric\Contract;
 interface StorageDriverContract
 {
     /**
-     * Store the value.
-     *
-     * @param mixed $value
+     * Establish a connection.
      */
-    public function persist(array $value): bool;
+    public function connect(): bool;
+
+    /**
+     * Reconnect.
+     */
+    public function reconnect(): bool;
+
+    /**
+     * Store a set of values.
+     */
+    public function persist(array $values): bool;
+
+    /**
+     * Close Connection.
+     */
+    public function close(): bool;
 }

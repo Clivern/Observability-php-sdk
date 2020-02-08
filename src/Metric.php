@@ -12,6 +12,7 @@ namespace Clivern\Metric;
 use Clivern\Metric\Contract\ConfigContract;
 use Clivern\Metric\Contract\QueueDriverContract;
 use Clivern\Metric\Contract\StorageDriverContract;
+use Clivern\Metric\Util\ConfigValue;
 
 /**
  * Metric Class.
@@ -34,11 +35,6 @@ class Metric
     private $storageDriver;
 
     /**
-     * @var string
-     */
-    private $bucketName;
-
-    /**
      * Class Constructor.
      */
     public function __construct(
@@ -52,24 +48,51 @@ class Metric
     }
 
     /**
-     * Create a Bucket to Collect Metrics.
-     */
-    public function createBucket(string $name)
-    {
-        $this->bucketName = $name;
-    }
-
-    /**
      * Push Metric into The Queue.
      */
-    public function publish(string $name, string $value, \DateTime $datetime): bool
+    public function publish(string $key, string $value, \DateTime $datetime): bool
     {
+        return $this->queueDriver->push([
+            'key' => $key,
+            'value' => $value,
+            'time' => $datetime->getTimestamp(),
+        ]);
     }
 
     /**
      * Move Metrics from the Queue to Storage.
      */
-    public function persist(): bool
+    public function persist(bool $daemon = false): bool
     {
+        $this->storageDriver->connect();
+
+        $persistChunkSize = (int) $this->config->get(
+            'storage.persist_chunk_size',
+            new ConfigValue(20)
+        )->value();
+
+        $delay = (int) $this->config->get(
+            'storage.persist_delay',
+            new ConfigValue(1000)
+        )->value();
+
+        $run = true;
+
+        while ($run) {
+            $run = $daemon;
+            $this->storageDriver->reconnect();
+
+            if ($this->queueDriver->isEmpty()) {
+                usleep($delay);
+                continue;
+            }
+
+            return $this->storageDriver->persist($this->queueDriver->pop(
+            ));
+
+            usleep($delay);
+        }
+
+        $this->storageDriver->close();
     }
 }

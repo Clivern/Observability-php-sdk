@@ -10,10 +10,39 @@
 
 ### Installation:
 
-```golang
-#
+To install the package via `composer`, use the following:
+
+```zsh
+$ composer require clivern/metric
 ```
 
+This command requires you to have `composer` installed globally.
+
+### Basic Usage
+
+After adding the package as a dependency, Please read the following steps:
+
+```php
+<?php
+
+use Clivern\Metric\Metric;
+use Clivern\Metric\Util\Config;
+use Clivern\Metric\Driver\Queue\File;
+use Clivern\Metric\Driver\Storage\Graphite;
+
+
+$metric = new Metric(
+    new Config()
+    new Graphite('localhost', 2003, 'tcp'),
+    new File("/path/to/cache/dir")
+);
+
+// Publish metric
+$metric->publish("app.metric", "1", new \DateTime("now", new \DateTimeZone('UTC')));
+
+// Run a different php process to aggregate metrics and store them on chunks
+$metric->persist(true); // true to run as daemon & false to send and close storage connection
+```
 
 ## Versioning
 
