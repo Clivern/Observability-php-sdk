@@ -45,7 +45,6 @@ $metric = new Metric(
     new File("/path/to/cache/dir")
 );
 
-// Run a different php process to aggregate metrics and store them on chunks
 $metric->persist(true); // true to run as daemon & false to send and close storage connection
 ```
 
