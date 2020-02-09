@@ -2,7 +2,11 @@
     <img alt="Metric Logo" src="https://raw.githubusercontent.com/clivern/Metric/master/assets/img/logo.png?v=1.0.1" width="130" />
     <h3 align="center">Metric</h3>
     <p align="center">Metrics Collector SDK in PHP</p>
-    <p align="center"></p>
+    <p align="center">
+        <a href="https://travis-ci.org/Clivern/Metric"><img src="https://travis-ci.org/Clivern/Metric.svg?branch=master"></a>
+        <a href="https://packagist.org/packages/clivern/metric"><img src="https://img.shields.io/badge/Version-0.0.1-red.svg"></a>
+        <a href="https://github.com/Clivern/Metric/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
+    </p>
 </p>
 
 
@@ -10,8 +14,67 @@
 
 ### Installation:
 
-```golang
-#
+To install the package via `composer`, use the following:
+
+```zsh
+$ composer require clivern/metric
+```
+
+This command requires you to have `composer` installed globally.
+
+### Basic Usage:
+
+After adding the package as a dependency, Please read the following steps:
+
+1. Run a simple `tcp` server.
+
+```php
+$ nc -l localhost 2003
+```
+
+2. Create a script to persist metrics to `Graphite`
+
+```php
+<?php
+
+use Clivern\Metric\Metric;
+use Clivern\Metric\Util\Config;
+use Clivern\Metric\Driver\Queue\File;
+use Clivern\Metric\Driver\Storage\Graphite;
+
+
+$metric = new Metric(
+    new Config(),
+    new Graphite('localhost', 2003, 'tcp'),
+    new File("/path/to/cache/dir")
+);
+
+$metric->persist(true); // true to run as daemon & false to send and close storage connection
+```
+
+3. Create a script to push metrics to the middle queue engine `File System` (not preferred to run on production)
+
+```php
+<?php
+
+use Clivern\Metric\Metric;
+use Clivern\Metric\Util\Config;
+use Clivern\Metric\Driver\Queue\File;
+use Clivern\Metric\Driver\Storage\Graphite;
+
+
+$metric = new Metric(
+    new Config(),
+    new Graphite('localhost', 2003, 'tcp'),
+    new File("/path/to/cache/dir")
+);
+
+$i = 1;
+
+while ($i < 100) {
+    $metric->publish("app.metric", "{$i}", new \DateTime("now", new \DateTimeZone('UTC')));
+    ++$i;
+}
 ```
 
 
