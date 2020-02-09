@@ -2,7 +2,11 @@
     <img alt="Metric Logo" src="https://raw.githubusercontent.com/clivern/Metric/master/assets/img/logo.png?v=1.0.1" width="130" />
     <h3 align="center">Metric</h3>
     <p align="center">Metrics Collector SDK in PHP</p>
-    <p align="center"></p>
+    <p align="center">
+        <a href="https://travis-ci.org/Clivern/Metric"><img src="https://travis-ci.org/Clivern/Metric.svg?branch=master"></a>
+        <a href="https://packagist.org/packages/clivern/metric"><img src="https://img.shields.io/badge/Version-0.0.1-red.svg"></a>
+        <a href="https://github.com/Clivern/Metric/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg"></a>
+    </p>
 </p>
 
 
