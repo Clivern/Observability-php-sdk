@@ -87,8 +87,7 @@ class Metric
                 continue;
             }
 
-            return $this->storageDriver->persist($this->queueDriver->pop(
-            ));
+            $this->storageDriver->persist($this->queueDriver->pop($persistChunkSize));
 
             usleep($delay);
         }

@@ -157,7 +157,7 @@ class File implements QueueDriverContract
         $pendingFileContent = '';
 
         if (file_exists($pendingFileName)) {
-            $pendingFileContent = file_get_contents($pendingFileName);
+            $pendingFileContent = @file_get_contents($pendingFileName);
         }
 
         $pendingFileContent = !empty($pendingFileContent) ? explode("\n", $pendingFileContent) : [];
