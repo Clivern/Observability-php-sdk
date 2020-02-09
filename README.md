@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Metric Logo" src="https://raw.githubusercontent.com/clivern/Metric/master/assets/img/logo.png?v=1.0.1" width="130" />
+    <img alt="Metric Logo" src="https://raw.githubusercontent.com/clivern/Metric/master/assets/img/logo.png?v=1.0.1" width="100" />
     <h3 align="center">Metric</h3>
     <p align="center">Metrics Collector SDK in PHP</p>
     <p align="center">
