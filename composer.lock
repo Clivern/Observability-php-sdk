@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8e6aa1d2769f7fefe0cc287af2eb10b",
+    "content-hash": "3cbe8fe93022832835e19ee23d11ff67",
     "packages": [
+        {
+            "name": "clivern/memcached",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Clivern/Memcached.git",
+                "reference": "71e6488257b2cece330c4ca03cd77e4cec478f69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Clivern/Memcached/zipball/71e6488257b2cece330c4ca03cd77e4cec478f69",
+                "reference": "71e6488257b2cece330c4ca03cd77e4cec478f69",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.14",
+                "phpunit/phpunit": "~5.7",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clivern\\Memcached\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Clivern",
+                    "email": "hello@clivern.com",
+                    "homepage": "http://clivern.com"
+                }
+            ],
+            "description": "Memcached Client for PHP.",
+            "homepage": "https://github.com/clivern/memcached",
+            "keywords": [
+                "caching",
+                "client",
+                "clivern",
+                "memcached"
+            ],
+            "time": "2019-05-05T21:46:53+00:00"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "6.5.2",
