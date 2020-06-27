@@ -14,7 +14,7 @@
     ],
     "require": {
         "php":">=7.0",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": "^7.0",
         "clivern/memcached": "^1.0"
     },
     "require-dev": {
