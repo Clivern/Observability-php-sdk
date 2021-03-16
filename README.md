@@ -104,7 +104,7 @@ $metricsReporter->report([
 ]);
 ```
 
-### ElasticSearch Reporter:
+### Elasticsearch Reporter:
 
 ```php
 #
