@@ -28,7 +28,7 @@ $ composer require clivern/observability-php-sdk
 
 This command requires you to have `composer` installed globally.
 
-### Usage:
+### Graphite Reporter:
 
 ```php
 use Clivern\Observability\Aggregation\MemcachedAggregate;
@@ -72,7 +72,7 @@ var_dump($execution->getTimeInSeconds()); // float
 var_dump($execution->getTimeInMinutes()); // float
 ```
 
-So to measure latency of an HTTP call or application latency.
+To measure latency of an HTTP call or application latency.
 
 ```php
 use Clivern\Observability\Aggregation\MemcachedAggregate;
@@ -102,6 +102,12 @@ $metricsReporter->report([
         'aggregateFunc' => MemcachedAggregate::AVG_AGGREGATE_FUNCTION
     ]
 ]);
+```
+
+### ElasticSearch Reporter:
+
+```php
+#
 ```
 
 
