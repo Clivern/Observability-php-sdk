@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of Symfony Observability SDK
+ * This file is part of Observability PHP SDK
  * (c) Clivern <hello@clivern.com>
  */
 

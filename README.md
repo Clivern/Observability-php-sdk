@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="observability-php-sdk logo" src="/assets/img/logo5.png?v=2.0.4" />
+    <img alt="observability-php-sdk logo" src="/assets/img/logo5.png?v=2.0.5" />
     <h3 align="center">Observability SDK</h3>
     <p align="center">Observability SDK for PHP Applications</p>
     <p align="center">
@@ -7,7 +7,7 @@
             <img src="https://github.com/Clivern/observability-php-sdk/actions/workflows/php.yml/badge.svg">
         </a>
         <a href="https://packagist.org/packages/clivern/observability-php-sdk">
-            <img src="https://img.shields.io/badge/Version-2.0.4-red.svg">
+            <img src="https://img.shields.io/badge/Version-2.0.5-red.svg">
         </a>
         <a href="https://github.com/Clivern/observability-php-sdk/blob/master/LICENSE">
             <img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg">
@@ -51,6 +51,8 @@ $metricsReporter->report([
     ]
 ]);
 ```
+
+For `PHP` runtime statistics, You can use this class `Clivern\Observability\Stats\Runtime`.
 
 
 ## Versioning
