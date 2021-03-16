@@ -20,7 +20,7 @@ class MemcachedAggregate implements AggregationInterface
 {
     public const DEFAULT_OPTIONS = [
         'cache_key_prefix' => 'clv_observability',
-        'batch_interval' => 120, // In seconds
+        'batch_interval' => 60, // In seconds
     ];
 
     public const SUM_AGGREGATE_FUNCTION = 'SUM';

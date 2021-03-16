@@ -44,7 +44,7 @@ $metricsReporter = new MemcachedAggregate(
 
 $metricsReporter->report([
     [
-        'key' => 'orders_service.metrics.hackathon.total_http_calls',
+        'key' => 'orders_service.metrics.total_http_calls',
         'value' => 1,
         'time' => time(),
         'aggregateFunc' => MemcachedAggregate::SUM_AGGREGATE_FUNCTION
@@ -53,6 +53,56 @@ $metricsReporter->report([
 ```
 
 For `PHP` runtime statistics, You can use this class `Clivern\Observability\Stats\Runtime`.
+
+To measure the execution time:
+
+```php
+use Clivern\Observability\Stats\Execution;
+
+
+$execution = new Execution();
+$execution->start();
+
+// Code that takes time!
+sleep(2);
+
+$execution->end();
+
+var_dump($execution->getTimeInSeconds()); // float
+var_dump($execution->getTimeInMinutes()); // float
+```
+
+So to measure latency of an HTTP call or application latency.
+
+```php
+use Clivern\Observability\Aggregation\MemcachedAggregate;
+use Clivern\Observability\Aggregation\Client\MemcachedClient;
+use Clivern\Observability\Reporter\GraphiteClient;
+
+
+$metricsReporter = new MemcachedAggregate(
+    new GraphiteClient(),
+    new MemcachedClient(),
+    []
+);
+
+$execution = new Execution();
+$execution->start();
+
+// Code that takes time!
+sleep(2);
+
+$execution->end();
+
+$metricsReporter->report([
+    [
+        'key' => 'orders_service.metrics.http_request_latency',
+        'value' => $execution->getTimeInSeconds(),
+        'time' => time(),
+        'aggregateFunc' => MemcachedAggregate::AVG_AGGREGATE_FUNCTION
+    ]
+]);
+```
 
 
 ## Versioning
