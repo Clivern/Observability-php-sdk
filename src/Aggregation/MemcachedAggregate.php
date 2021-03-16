@@ -18,15 +18,15 @@ use Clivern\Observability\Reporter\ReporterInterface;
  */
 class MemcachedAggregate implements AggregationInterface
 {
-    const DEFAULT_OPTIONS = [
+    public const DEFAULT_OPTIONS = [
         'cache_key_prefix' => 'clv_observability',
         'batch_interval' => 60, // In seconds
     ];
 
-    const SUM_AGGREGATE_FUNCTION = 'SUM';
-    const AVG_AGGREGATE_FUNCTION = 'AVG';
-    const MAX_AGGREGATE_FUNCTION = 'MAX';
-    const MIN_AGGREGATE_FUNCTION = 'MIN';
+    public const SUM_AGGREGATE_FUNCTION = 'SUM';
+    public const AVG_AGGREGATE_FUNCTION = 'AVG';
+    public const MAX_AGGREGATE_FUNCTION = 'MAX';
+    public const MIN_AGGREGATE_FUNCTION = 'MIN';
 
     /**
      * @var \MemcachedClient

@@ -16,9 +16,9 @@ use Clivern\Observability\Exception\MemcachedException;
  */
 class MemcachedClient
 {
-    const GET_EXTENDED = \Memcached::GET_EXTENDED;
+    public const GET_EXTENDED = \Memcached::GET_EXTENDED;
 
-    const DEFAULT_OPTIONS = [
+    public const DEFAULT_OPTIONS = [
         \Memcached::OPT_COMPRESSION => true,
     ];
 
