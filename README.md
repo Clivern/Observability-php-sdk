@@ -7,7 +7,7 @@
             <img src="https://github.com/Clivern/observability-php-sdk/actions/workflows/php.yml/badge.svg">
         </a>
         <a href="https://packagist.org/packages/clivern/observability-php-sdk">
-            <img src="https://img.shields.io/badge/Version-2.0.1-red.svg">
+            <img src="https://img.shields.io/badge/Version-2.0.2-red.svg">
         </a>
         <a href="https://github.com/Clivern/observability-php-sdk/blob/master/LICENSE">
             <img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg">

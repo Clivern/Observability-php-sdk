@@ -44,9 +44,9 @@ class MemcachedAggregate implements AggregationInterface
     private $options;
 
     public function __construct(
-        array $options,
         ReporterInterface $reporter,
-        MemcachedClient $memcachedClient
+        MemcachedClient $memcachedClient,
+        array $options
     ) {
         $this->options = array_merge(self::DEFAULT_OPTIONS, $options);
         $this->memcachedClient = $memcachedClient ?? new MemcachedClient();
