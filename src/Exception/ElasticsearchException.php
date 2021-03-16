@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Clivern\Observability\Exception;
 
 /**
- * GraphiteException Class.
+ * ElasticsearchException Class.
  */
-class GraphiteException extends Exception
+class ElasticsearchException extends Exception
 {
 }

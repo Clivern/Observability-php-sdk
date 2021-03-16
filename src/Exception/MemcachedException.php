@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Clivern\Observability\Exception;
 
 /**
- * MemcachedException Exception.
+ * MemcachedException Class.
  */
 class MemcachedException extends Exception
 {
