@@ -28,6 +28,7 @@ class RequestSubscriber implements EventSubscriberInterface
             ]]);
         } catch (\Exception $e) {
             // Do something about it
+            var_dump($e->getMessage());
         }
     }
 
