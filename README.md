@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="observability-php-sdk logo" src="/assets/img/logo.png?v=2.0.0" width="30%" />
+    <img alt="observability-php-sdk logo" src="/assets/img/logo.png?v=2.0.0" />
     <h3 align="center">Observability SDK</h3>
     <p align="center">Observability SDK for PHP Applications</p>
     <p align="center">
