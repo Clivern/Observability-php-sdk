@@ -3,6 +3,9 @@
     <h3 align="center">Observability SDK</h3>
     <p align="center">Observability SDK for PHP Applications</p>
     <p align="center">
+        <a href="https://github.com/Clivern/observability-php-sdk/actions/workflows/php.yml">
+            <img src="https://github.com/Clivern/observability-php-sdk/actions/workflows/php.yml/badge.svg">
+        </a>
         <a href="https://packagist.org/packages/clivern/observability-php-sdk">
             <img src="https://img.shields.io/badge/Version-2.0.0-red.svg">
         </a>
