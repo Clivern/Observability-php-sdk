@@ -6,10 +6,9 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        operating-system: [ ubuntu-18.04 ]
         php: [ '7.2, '7.3', 7.4' ]
     name: Run CI PHP ${{ matrix.php }}
     steps:
