@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "php":">=7.0"
+        "php":">=7.0",
+        "ext-memcached": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.6.0",
