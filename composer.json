@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Clivern\\Observability\\Tests\\": "tests"
+            "Tests\\": "tests"
         }
     },
     "scripts": {
