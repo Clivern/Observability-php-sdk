@@ -37,8 +37,8 @@ use Clivern\Observability\Reporter\GraphiteClient;
 
 
 $metricsReporter = new MemcachedAggregate(
-    new GraphiteClient(),
-    new MemcachedClient(),
+    new GraphiteClient('localhost', 2003),
+    new MemcachedClient('127.0.0.1', 11211),
     []
 );
 
@@ -81,8 +81,8 @@ use Clivern\Observability\Reporter\GraphiteClient;
 
 
 $metricsReporter = new MemcachedAggregate(
-    new GraphiteClient(),
-    new MemcachedClient(),
+    new GraphiteClient('localhost', 2003),
+    new MemcachedClient('127.0.0.1', 11211),
     []
 );
 
