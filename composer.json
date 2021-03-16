@@ -1,10 +1,10 @@
 {
-    "name": "clivern/metric",
+    "name": "clivern/symfony-observability-sdk",
     "type": "library",
-    "description": "Metrics Collector SDK in PHP.",
-    "keywords": ["clivern", "metric"],
+    "description": "Observability SDK for Symfony.",
+    "keywords": ["clivern", "observability"],
     "license": "MIT",
-    "homepage": "https://github.com/clivern/metric",
+    "homepage": "https://github.com/clivern/observability-php-sdk",
     "authors": [
         {
             "name": "Clivern",
@@ -13,9 +13,7 @@
         }
     ],
     "require": {
-        "php":">=7.0",
-        "guzzlehttp/guzzle": "^6.5",
-        "clivern/memcached": "^1.0"
+        "php":">=7.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "2.16.1",
@@ -24,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Clivern\\Metric\\": "src"
+            "Clivern\\Observability\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Clivern\\Metric\\": "tests"
+            "Clivern\\Observability\\Tests\\": "tests"
         }
     },
     "scripts": {
