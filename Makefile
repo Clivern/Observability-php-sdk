@@ -7,18 +7,20 @@ composer:
 
 
 fix:
-	./vendor/bin/php-cs-fixer fix
+	vendor/bin/php-cs-fixer fix src
+	vendor/bin/php-cs-fixer fix tests
 
 
 fix-diff:
-	./vendor/bin/php-cs-fixer fix --diff --dry-run -v
+	./vendor/bin/php-cs-fixer fix src --diff --dry-run -v
+	./vendor/bin/php-cs-fixer fix tests --diff --dry-run -v
 
 
 test: composer
 	vendor/bin/phpunit -c .
 
 
-lint: lint-php phpcs php-cs lint-composer lint-eol
+lint: lint-php phpcs fix-diff lint-composer lint-eol
 	@echo All good.
 
 
@@ -40,11 +42,6 @@ lint-php:
 
 phpcs:
 	vendor/bin/phpcs
-
-
-php-cs:
-	vendor/bin/php-cs-fixer fix src --diff --dry-run -v
-	vendor/bin/php-cs-fixer fix tests --diff --dry-run -v
 
 
 coverage: composer

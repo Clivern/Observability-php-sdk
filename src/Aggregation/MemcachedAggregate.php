@@ -20,7 +20,7 @@ class MemcachedAggregate implements AggregationInterface
 {
     public const DEFAULT_OPTIONS = [
         'cache_key_prefix' => 'clv_observability',
-        'batch_interval' => 60, // In seconds
+        'batch_interval' => 120, // In seconds
     ];
 
     public const SUM_AGGREGATE_FUNCTION = 'SUM';
@@ -46,10 +46,11 @@ class MemcachedAggregate implements AggregationInterface
     public function __construct(
         ReporterInterface $reporter,
         MemcachedClient $memcachedClient,
-        array $options
+        array $options = []
     ) {
         $this->options = array_merge(self::DEFAULT_OPTIONS, $options);
         $this->memcachedClient = $memcachedClient ?? new MemcachedClient();
+        $this->reporter = $reporter;
     }
 
     /**
@@ -164,7 +165,7 @@ class MemcachedAggregate implements AggregationInterface
     /**
      * Aggregate metrics with an aggregate function.
      */
-    protected function aggregateMetrics(array $metrics): void
+    protected function aggregateMetrics(array $metrics): array
     {
         $newMetrics = [];
 
@@ -190,6 +191,8 @@ class MemcachedAggregate implements AggregationInterface
                 }
             }
         }
+
+        return array_values($newMetrics);
     }
 
     /**
