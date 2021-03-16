@@ -1,5 +1,5 @@
 {
-    "name": "clivern/symfony-observability-sdk",
+    "name": "clivern/observability-php-sdk",
     "type": "library",
     "description": "Observability SDK for Symfony.",
     "keywords": ["clivern", "observability"],
