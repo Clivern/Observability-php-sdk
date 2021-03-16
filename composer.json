@@ -1,7 +1,7 @@
 {
     "name": "clivern/observability-php-sdk",
     "type": "library",
-    "description": "Observability SDK for Symfony.",
+    "description": "Observability SDK for PHP Applications.",
     "keywords": ["clivern", "observability"],
     "license": "MIT",
     "homepage": "https://github.com/clivern/observability-php-sdk",
