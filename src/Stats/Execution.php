@@ -15,17 +15,17 @@ namespace Clivern\Observability\Stats;
 final class Execution
 {
     /**
-     * @var integer
+     * @var int
      */
     private $start = 0;
 
     /**
-     * @var integer
+     * @var int
      */
     private $end = 0;
 
     /**
-     * Track start time
+     * Track start time.
      */
     public function start(): void
     {
@@ -33,7 +33,7 @@ final class Execution
     }
 
     /**
-     * Track end time
+     * Track end time.
      */
     public function end(): void
     {
@@ -41,7 +41,7 @@ final class Execution
     }
 
     /**
-     * Get Execution Time in Seconds
+     * Get Execution Time in Seconds.
      *
      * @return int
      */
@@ -51,9 +51,7 @@ final class Execution
     }
 
     /**
-     * Get Execution Time in Minutes
-     *
-     * @return float
+     * Get Execution Time in Minutes.
      */
     public function getTimeInMinutes(): float
     {

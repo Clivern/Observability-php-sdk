@@ -49,9 +49,9 @@ final class GraphiteClient implements ReporterInterface
         string $protocol = 'tcp',
         $connectRetries = 2
     ) {
-        $this->host = $host;
-        $this->port = $port;
-        $this->protocol = $protocol;
+        $this->host           = $host;
+        $this->port           = $port;
+        $this->protocol       = $protocol;
         $this->connectRetries = $connectRetries;
     }
 
@@ -83,19 +83,20 @@ final class GraphiteClient implements ReporterInterface
     /**
      * Establish a connection.
      */
-    protected function connect()
+    private function connect()
     {
         $retry = 1;
 
         start:
         try {
-            ++$retry;
-            $this->connection = fsockopen($this->protocol.'://'.$this->host, $this->port);
+            $retry++;
+            $this->connection = fsockopen($this->protocol . '://' . $this->host, $this->port);
         } catch (Exception $e) {
             if ($retry <= $this->connectRetries) {
                 usleep(100000);
                 goto start;
             }
+
             throw new GraphiteException(sprintf('Error while connecting graphite server: %s', $e->getMessage()));
         }
 
@@ -107,7 +108,7 @@ final class GraphiteClient implements ReporterInterface
     /**
      * Close Connection.
      */
-    protected function close()
+    private function close()
     {
         if ($this->connection) {
             fclose($this->connection);

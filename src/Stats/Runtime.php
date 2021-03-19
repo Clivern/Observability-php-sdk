@@ -15,15 +15,15 @@ namespace Clivern\Observability\Stats;
 final class Runtime
 {
     /**
-     * Gets the current PHP version
+     * Gets the current PHP version.
      */
     public static function phpVersion(): string
     {
-        return phpversion();
+        return PHP_VERSION;
     }
 
     /**
-     * Gets the current resource usages
+     * Gets the current resource usages.
      */
     public static function getResourceUsages(): ?array
     {
@@ -31,7 +31,7 @@ final class Runtime
     }
 
     /**
-     * Returns active resources
+     * Returns active resources.
      */
     public static function getResources(): ?array
     {
@@ -39,7 +39,7 @@ final class Runtime
     }
 
     /**
-     * Reclaims memory used by the Zend Engine memory manager
+     * Reclaims memory used by the Zend Engine memory manager.
      */
     public static function gcMemCaches(): int
     {
@@ -47,7 +47,7 @@ final class Runtime
     }
 
     /**
-     * Gets the version of the current Zend engine
+     * Gets the version of the current Zend engine.
      */
     public static function getZendVersion(): string
     {
@@ -55,10 +55,9 @@ final class Runtime
     }
 
     /**
-     * Get the amount of memory allocated to PHP
+     * Get the amount of memory allocated to PHP.
      *
-     * @param  bool|boolean $real_usage
-     * @return int
+     * @param bool|bool $real_usage
      */
     public static function getMemoryUsage(bool $real_usage = false): int
     {
@@ -66,10 +65,9 @@ final class Runtime
     }
 
     /**
-     * Get the peak of memory allocated by PHP
+     * Get the peak of memory allocated by PHP.
      *
-     * @param  bool|boolean $real_usage
-     * @return int
+     * @param bool|bool $real_usage
      */
     public static function getMemoryPeakUsage(bool $real_usage = false): int
     {

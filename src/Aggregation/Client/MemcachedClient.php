@@ -48,8 +48,8 @@ class MemcachedClient
         int $timeout = 30,
         array $options = []
     ) {
-        $this->server = $server;
-        $this->port = $port;
+        $this->server  = $server;
+        $this->port    = $port;
         $this->timeout = $timeout;
 
         if (!class_exists('\Memcached')) {

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Stats;
 
-use PHPUnit\Framework\TestCase;
 use Clivern\Observability\Stats\Runtime;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Runtime Class Test.
@@ -20,6 +20,6 @@ class RuntimeTest extends TestCase
     public function testType()
     {
         $runtime = new Runtime();
-        $this->assertTrue($runtime instanceof Runtime);
+        self::assertTrue($runtime instanceof Runtime);
     }
 }

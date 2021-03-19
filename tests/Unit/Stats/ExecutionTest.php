@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Stats;
 
-use PHPUnit\Framework\TestCase;
 use Clivern\Observability\Stats\Execution;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Execution Class Test.
@@ -24,7 +24,7 @@ class ExecutionTest extends TestCase
         usleep(100);
         $execution->end();
 
-        $this->assertTrue($execution instanceof Execution);
-        $this->assertTrue($execution->getTimeInSeconds() > 0);
+        self::assertTrue($execution instanceof Execution);
+        self::assertTrue($execution->getTimeInSeconds() > 0);
     }
 }

@@ -20,7 +20,7 @@ final class MemcachedAggregate implements AggregationInterface
 {
     public const DEFAULT_OPTIONS = [
         'cache_key_prefix' => 'clv_observability',
-        'batch_interval' => 60, // In seconds
+        'batch_interval'   => 60, // In seconds
     ];
 
     public const SUM_AGGREGATE_FUNCTION = 'SUM';
@@ -48,9 +48,9 @@ final class MemcachedAggregate implements AggregationInterface
         MemcachedClient $memcachedClient,
         array $options = []
     ) {
-        $this->options = array_merge(self::DEFAULT_OPTIONS, $options);
+        $this->options         = array_merge(self::DEFAULT_OPTIONS, $options);
         $this->memcachedClient = $memcachedClient ?? new MemcachedClient();
-        $this->reporter = $reporter;
+        $this->reporter        = $reporter;
     }
 
     /**
@@ -61,7 +61,7 @@ final class MemcachedAggregate implements AggregationInterface
     public function report(array $metrics): void
     {
         try {
-            $status = false;
+            $status            = false;
             $aggregatedMetrics = [];
 
             $this->memcachedClient->ping();
@@ -95,7 +95,7 @@ final class MemcachedAggregate implements AggregationInterface
                 // If batch reporting interval passed and enabled, send metrics to reporter
                 if ($this->isBatchIntervalPassed()) {
                     $aggregatedMetrics = $result['value'];
-                    $result['value'] = [];
+                    $result['value']   = [];
                     $this->resetBatchInterval();
                 }
 
@@ -172,15 +172,16 @@ final class MemcachedAggregate implements AggregationInterface
         foreach ($metrics as $metric) {
             if (!\in_array($metric['key'], array_keys($newMetrics), true)) {
                 $newMetrics[$metric['key']] = $metric;
+
                 continue;
             }
 
             if (self::SUM_AGGREGATE_FUNCTION === $newMetrics[$metric['key']]['aggregateFunc']) {
                 $newMetrics[$metric['key']]['value'] = $metric['value'] + $newMetrics[$metric['key']]['value'];
-                $newMetrics[$metric['key']]['time'] = (int) (($metric['time'] + $newMetrics[$metric['key']]['time']) / 2);
+                $newMetrics[$metric['key']]['time']  = (int) (($metric['time'] + $newMetrics[$metric['key']]['time']) / 2);
             } elseif (self::AVG_AGGREGATE_FUNCTION === $newMetrics[$metric['key']]['aggregateFunc']) {
                 $newMetrics[$metric['key']]['value'] = $metric['value'] + $newMetrics[$metric['key']]['value'] / 2;
-                $newMetrics[$metric['key']]['time'] = (int) (($metric['time'] + $newMetrics[$metric['key']]['time']) / 2);
+                $newMetrics[$metric['key']]['time']  = (int) (($metric['time'] + $newMetrics[$metric['key']]['time']) / 2);
             } elseif (self::MAX_AGGREGATE_FUNCTION === $newMetrics[$metric['key']]['aggregateFunc']) {
                 if ($newMetrics[$metric['key']]['value'] < $metric['value']) {
                     $newMetrics[$metric['key']] = $metric;
