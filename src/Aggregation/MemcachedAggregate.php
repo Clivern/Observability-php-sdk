@@ -16,7 +16,7 @@ use Clivern\Observability\Reporter\ReporterInterface;
 /**
  * MemcachedAggregate Class.
  */
-class MemcachedAggregate implements AggregationInterface
+final class MemcachedAggregate implements AggregationInterface
 {
     public const DEFAULT_OPTIONS = [
         'cache_key_prefix' => 'clv_observability',
@@ -165,7 +165,7 @@ class MemcachedAggregate implements AggregationInterface
     /**
      * Aggregate metrics with an aggregate function.
      */
-    protected function aggregateMetrics(array $metrics): array
+    private function aggregateMetrics(array $metrics): array
     {
         $newMetrics = [];
 
@@ -198,7 +198,7 @@ class MemcachedAggregate implements AggregationInterface
     /**
      * Is Batch Interval Passed.
      */
-    protected function isBatchIntervalPassed(): bool
+    private function isBatchIntervalPassed(): bool
     {
         if ($this->options['batch_interval'] <= 0) {
             return false;
@@ -222,7 +222,7 @@ class MemcachedAggregate implements AggregationInterface
      *
      * @throws MemcachedException
      */
-    protected function resetBatchInterval(): bool
+    private function resetBatchInterval(): bool
     {
         if ($this->options['batch_interval'] <= 0) {
             return false;

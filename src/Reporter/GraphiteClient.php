@@ -14,7 +14,7 @@ use Clivern\Observability\Exception\GraphiteException;
 /**
  * GraphiteClient Class.
  */
-class GraphiteClient implements ReporterInterface
+final class GraphiteClient implements ReporterInterface
 {
     /**
      * @var string

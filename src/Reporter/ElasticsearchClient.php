@@ -12,7 +12,7 @@ namespace Clivern\Observability\Reporter;
 /**
  * ElasticsearchClient Class.
  */
-class ElasticsearchClient implements ReporterInterface
+final class ElasticsearchClient implements ReporterInterface
 {
     /**
      * {@inheritdoc}

@@ -12,7 +12,7 @@ namespace Clivern\Observability\Stats;
 /**
  * Runtime Class.
  */
-class Runtime
+final class Runtime
 {
     /**
      * Gets the current PHP version

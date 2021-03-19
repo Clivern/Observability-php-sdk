@@ -12,7 +12,7 @@ namespace Clivern\Observability\Stats;
 /**
  * Execution Class.
  */
-class Execution
+final class Execution
 {
     /**
      * @var integer
